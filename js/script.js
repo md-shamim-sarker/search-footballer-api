@@ -1,3 +1,10 @@
+// Spinner Part
+const loader = document.getElementsByClassName('preloader')[0];
+window.addEventListener('load', () => {
+    loader.style.display = 'none';
+});
+
+// Fetch data
 const loadData = playerName => {
     fetch(`https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${playerName}`)
         .then(response => response.json())
@@ -23,16 +30,10 @@ const display = data => {
             </div>
         </div>
     `;
-    console.log();
-    console.log();
-    console.log();
-    console.log();
-    console.log();
 };
 
+// Search part
 document.getElementById('search-btn').addEventListener('click', () => {
     const playerName = document.getElementById('search-input').value;
     loadData(playerName);
-    console.log(playerName);
 });
-
