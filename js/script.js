@@ -13,6 +13,11 @@ const loadData = playerName => {
 };
 
 const display = data => {
+    if(data.player === null) {
+        document.getElementById('main').innerHTML = `<h2>Result Not Found. Please, Check Your Spelling.</h2>`;
+        return;
+    }
+    console.log(data.player);
     const main = document.getElementById('main');
     main.innerHTML = `
         <div class="player-image">
