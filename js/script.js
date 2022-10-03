@@ -37,3 +37,10 @@ document.getElementById('search-btn').addEventListener('click', () => {
     const playerName = document.getElementById('search-input').value;
     loadData(playerName);
 });
+
+document.getElementById('search-input').addEventListener('keyup', (e) => {
+    if(e.key === 'Enter') {
+        const playerName = document.getElementById('search-input').value;
+        loadData(playerName);
+    }
+}); 
