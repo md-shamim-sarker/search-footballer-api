@@ -16,10 +16,9 @@ const display = data => {
     if(data.player === null) {
         document.getElementById('main').innerHTML = `<h2>Result Not Found. Please, Check Your Spelling.</h2>`;
         return;
-    }
-    console.log(data.player);
-    const main = document.getElementById('main');
-    main.innerHTML = `
+    } else {
+        const main = document.getElementById('main');
+        main.innerHTML = `
         <div class="player-image">
             <img src="${data.player[0].strThumb}" alt="">
         </div>
@@ -35,17 +34,22 @@ const display = data => {
             </div>
         </div>
     `;
+    }
 };
 
 // Search part
 document.getElementById('search-btn').addEventListener('click', () => {
     const playerName = document.getElementById('search-input').value;
     loadData(playerName);
+    document.getElementById('search-input').value = '';
+    document.getElementById('search-input').blur();
 });
 
 document.getElementById('search-input').addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
         const playerName = document.getElementById('search-input').value;
         loadData(playerName);
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-input').blur();
     }
 }); 
